@@ -7,8 +7,10 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Infrastructure;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection.Extensions;
 
 namespace WebAppTest
 {
@@ -31,6 +33,43 @@ namespace WebAppTest
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
+            // Sjg.IdentityCore 
+            services.ConfigureApplicationCookie(options =>
+            {
+                // Cookie settings
+                options.ExpireTimeSpan = TimeSpan.FromMinutes(30);
+                options.SlidingExpiration = true;
+
+                // If the LoginPath isn't set, ASP.NET Core defaults
+                // the path to /Account/Login.
+                //options.LoginPath = "/Account/Login";
+                options.LoginPath = "/Identity/Account/Login";
+                // If the AccessDeniedPath isn't set, ASP.NET Core defaults
+                // the path to /Account/AccessDenied.
+                //options.AccessDeniedPath = "/Account/AccessDenied";
+                options.AccessDeniedPath = "/Identity/Account/AccessDenied";
+
+                // OBSOLETE options.Cookie.HttpOnly = true;
+            });
+
+            services.AddMvc()
+                .AddRazorPagesOptions(options =>
+                {
+                    options.AllowAreas = true; // support areas in a Razor Pages application
+                    options.Conventions.AuthorizeFolder("/"); // Authorize All Non-Area Razor Pages and Folders => /Pages
+                    options.Conventions.AllowAnonymousToFolder("/Terms"); // Allow Anonymous on terms
+
+                    // Area -- Identity
+                    //options.Conventions.AllowAnonymousToAreaFolder("Identity", "/");
+                    //options.Conventions.AuthorizeAreaFolder("Identity", "/Account/Manage");
+
+                    // Area -- UserMgmt => based on Policy
+                    //options.Conventions.AuthorizeAreaFolder("UserMgmt", "/", "Areas.UserMgmt.Roles.UserAdministrator"); // All of Area
+                });
+
+            // IHttpContextAccessor is no longer wired up by default, you have to register it yourself
+            services.TryAddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+            services.TryAddSingleton<IActionContextAccessor, ActionContextAccessor>();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
@@ -49,11 +88,74 @@ namespace WebAppTest
                 app.UseHsts();
             }
 
+            // -----------------------
+            // Security Stuff - Start
+            // -----------------------
+
+            // https://www.codeproject.com/Articles/1259066/10-Points-to-Secure-Your-ASP-NET-Core-MVC-Applic-2
+
+            //// NWebSec - Registered before static files to always set header
+            ////   https://docs.nwebsec.com/en/latest/
+            ////   https://docs.nwebsec.com/en/latest/nwebsec/Configuring-csp.html
+            ////
+            ////   https://damienbod.com/2018/03/14/securing-the-cdn-links-in-the-asp-net-core-2-1-templates/
+            ////   https://books.google.com/books?id=_95YDwAAQBAJ&pg=PA192&lpg=PA192&dq=NWebsec+ScriptSources+CustomSources&source=bl&ots=Mb0rxfllE4&sig=HV3d7UHLvBhQMFGW3CsCapNeNAQ&hl=en&sa=X&ved=2ahUKEwiGuYCsrrTeAhWpHTQIHRqBDlEQ6AEwBXoECAcQAQ#v=onepage&q=NWebsec%20ScriptSources%20CustomSources&f=false
+
+            ////   https://development.robinwinslow.uk/2013/06/20/loading-fonts-as-data-urls/
+
+            app.UseHsts(hsts => hsts.MaxAge(365).IncludeSubdomains());
+            app.UseXContentTypeOptions();
+            app.UseReferrerPolicy(opts => opts.NoReferrer());
+            app.UseXXssProtection(options => options.EnabledWithBlockMode());
+            app.UseXfo(options => options.Deny());
+
+            app.UseCsp(opts => opts
+                //.BlockAllMixedContent()
+
+                .StyleSources(s => s.Self().CustomSources("cdnjs.cloudflare.com", "stackpath.bootstrapcdn.com", "use.fontawesome.com"))
+                .StyleSources(s => s.UnsafeInline())
+
+                .FontSources(s => s.Self().CustomSources("use.fontawesome.com", "data:"))
+
+                .FormActions(s => s.Self())
+                .FrameAncestors(s => s.Self())
+                //.ImageSources(s => s.Self())
+                .ImageSources(s => s.Self().CustomSources("data:"))
+                //.ImageSources(s => s.Self())  // SJG - Research - Commented out - embedded --> bootstrap.css --> data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg'
+
+                .ScriptSources(s => s.Self().CustomSources("cdnjs.cloudflare.com", "stackpath.bootstrapcdn.com"))
+                .ScriptSources(s => s.UnsafeInline()) //SJG - Allows OnClick=
+
+                );
+
+            //////app.UseCsp(options => options
+            //////    .DefaultSources(s => s.Self())
+            //////    .ConnectSources(s => s.Self())
+            //////    .StyleSources(s => s.Self().CustomSources("ajax.aspnetcdn.com"))
+            //////    .ScriptSources(s => s.Self().CustomSources("localhost", "ajax.aspnetcdn.com", "ajax.googleapis.com"))
+            //////);
+
+            // -----------------------
+            // Security Stuff - Stop
+            // -----------------------
+
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseCookiePolicy();
 
+            // Sjg.IdentityCore 
+            app.UseAuthentication();
+
+
             app.UseMvc();
+
+
+            // --------------------------------------------------------
+            // Application's Initialization Processing....
+            // --------------------------------------------------------
+
+            // Sjg.IdentityCore - Establish Access/Authorization Roles for User Managament
+            Task.Run(() => Sjg.IdentityCore.Areas.UserMgmt.Roles.SetUpRolesAsync(app.ApplicationServices));  // Process Asynchronously - no need to wait.
         }
     }
 }

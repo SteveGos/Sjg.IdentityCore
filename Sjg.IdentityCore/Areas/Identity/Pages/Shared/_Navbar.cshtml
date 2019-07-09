@@ -5,7 +5,6 @@
 @inject SignInManager<AccAuthUser> SignInManager
 @inject UserManager<AccAuthUser> UserManager
 
-
 @{
     var title = accAuthConfiguration.SiteTitle;
     if (User.Identity.IsAuthenticated)
@@ -17,7 +16,7 @@
 <div class="container-fluid">
     <nav class="navbar navbar-expand-lg navbar-light shadow p-3 mb-3 rounded site-navebar">
 
-        <a class="navbar-brand"  asp-area="" asp-page="/Index">
+        <a class="navbar-brand" asp-area="" asp-page="/Index">
             <i class="fa fa-home fa-fw"></i>&nbsp;@title
         </a>
 
@@ -35,50 +34,47 @@
             <div class="navbar-nav">
                 @if (User.Identity.IsAuthenticated)
                 {
-                    <a class="nav-link" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">My Account</a>
-                    <form asp-area="Identity" asp-page="/Account/Logout" method="post" id="logoutForm">
-                        <button type="submit" class="btn btn-link navbar-btn navbar-link">Logout</button>
-                    </form>
+                <a class="nav-link" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">My Account</a>
+                <form asp-area="Identity" asp-page="/Account/Logout" method="post" id="logoutForm">
+                    <button type="submit" class="btn btn-link navbar-btn navbar-link">Logout</button>
+                </form>
                 }
                 else
                 {
-                    @if (!accAuthConfiguration.InvitationOnly)
+                @if (!accAuthConfiguration.InvitationOnly)
                     {
-                        <a class="nav-link" asp-area="Identity" asp-page="/Account/Register">Register</a>
+                <a class="nav-link" asp-area="Identity" asp-page="/Account/Register">Register</a>
                     }
-                    <a class="nav-link" asp-area="Identity" asp-page="/Account/Login">Login</a>
+                <a class="nav-link" asp-area="Identity" asp-page="/Account/Login">Login</a>
                 }
-
             </div>
         </div>
     </nav>
 </div>
 
-
 @*@if (SignInManager.IsSignedIn(User))
-{
-    <form asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Page("/Index", new { area = string.Empty })" method="post" id="logoutForm" class="navbar-right">
+    {
+        <form asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Page("/Index", new { area = string.Empty })" method="post" id="logoutForm" class="navbar-right">
+            <ul class="navbar-nav navbar-right">
+                <li class="nav-item">
+                    <a class="nav-link" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hello @UserManager.GetUserName(User)!</a>
+                </li>
+                <li class="nav-item">
+                    <button type="submit" class="btn btn-link navbar-btn navbar-link">Logout</button>
+                </li>
+            </ul>
+        </form>
+    }
+    else
+    {
         <ul class="navbar-nav navbar-right">
-            <li class="nav-item">
-                <a class="nav-link" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hello @UserManager.GetUserName(User)!</a>
-            </li>
-            <li class="nav-item">
-                <button type="submit" class="btn btn-link navbar-btn navbar-link">Logout</button>
-            </li>
+            @if (!accAuthConfiguration.InvitationOnly)
+            {
+                <li class="nav-item"><a class="nav-link" asp-area="Identity" asp-page="/Account/Register">Register</a></li>
+            }
+            <li class="nav-item"><a class="nav-link" asp-area="Identity" asp-page="/Account/Login">Login</a></li>
         </ul>
-    </form>
-}
-else
-{
-    <ul class="navbar-nav navbar-right">
-        @if (!accAuthConfiguration.InvitationOnly)
-        {
-            <li class="nav-item"><a class="nav-link" asp-area="Identity" asp-page="/Account/Register">Register</a></li>
-        }
-        <li class="nav-item"><a class="nav-link" asp-area="Identity" asp-page="/Account/Login">Login</a></li>
-    </ul>
-}*@
-
+    }*@
 
 @*<nav class="navbar navbar-expand-md navbar-light bg-light navbar-shadow">
         <a class="navbar-brand" href='@Url.Content("~/")'>

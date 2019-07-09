@@ -19,11 +19,9 @@ namespace Sjg.IdentityCore.Services
         public const string DefaultAppFolderPath = "";
         public string AppFolderPath { get; set; } = DefaultAppFolderPath;
 
-
         public string SiteTitle { get; set; } = DefaultSiteTitle;
         public bool InvitationOnly { get; set; } = DefaultInvitationOnly;
         public int InvitationExpirationDays { get; set; } = DefaultInvitationExpirationDays;
-
 
         //// Active Directory Options
         public string LdapDomain { get; set; } = DefaultLdapDomain;

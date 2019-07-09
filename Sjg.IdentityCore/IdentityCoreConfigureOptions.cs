@@ -31,7 +31,6 @@ namespace Sjg.IdentityCore
 
             options.FileProvider = options.FileProvider ?? _environment.WebRootFileProvider;
 
-
             // Must be same as in the project file ==> <EmbeddedResource Include = "resources\**\*" />
             var basePath = "resources";
 

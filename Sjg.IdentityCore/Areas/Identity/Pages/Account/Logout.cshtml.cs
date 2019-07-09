@@ -39,7 +39,6 @@ namespace Sjg.IdentityCore.Areas.Identity.Pages.Account
             }
 
             return Page();
-
         }
     }
 }

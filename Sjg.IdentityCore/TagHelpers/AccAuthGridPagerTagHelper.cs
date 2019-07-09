@@ -68,8 +68,8 @@ namespace Sjg.IdentityCore.TagHelpers
         public ViewContext ViewContext { get; set; }
 
         public AccAuthGridPagerTagHelper(
-            IHttpContextAccessor accessor, 
-            IActionContextAccessor actionContextAccessor, 
+            IHttpContextAccessor accessor,
+            IActionContextAccessor actionContextAccessor,
             IUrlHelperFactory urlHelperFactory)
         {
             _httpContext = accessor.HttpContext;

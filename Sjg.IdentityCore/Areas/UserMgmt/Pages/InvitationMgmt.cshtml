@@ -100,17 +100,17 @@
     <tbody>
         @foreach (var item in Model.GridData)
         {
-            <tr>
-                <td>
-                    <a asp-page="/AccAuthInvites/Details" asp-route-id="@item.AccAuthInviteId">@item.Email</a>
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.DisplayName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.ExpirationDateUtc)
-                </td>
-            </tr>
+        <tr>
+            <td>
+                <a asp-page="/AccAuthInvites/Details" asp-route-id="@item.AccAuthInviteId">@item.Email</a>
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DisplayName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ExpirationDateUtc)
+            </td>
+        </tr>
         }
     </tbody>
 </table>

@@ -80,11 +80,11 @@
         <div class="form-group">
             @if (Model.AccAuthConfiguration.InvitationOnly)
             {
-                <i class="far fa-check-square"></i>
+            <i class="far fa-check-square"></i>
             }
             else
             {
-                <i class="far fa-square"></i>
+            <i class="far fa-square"></i>
             }
             <label asp-for="AccAuthConfiguration.InvitationOnly" class="form-check-label @(@Model.AccAuthConfiguration.InvitationOnly ? "text-danger" : "")"></label>
         </div>
@@ -103,24 +103,24 @@
 
         @if (Model.AccAuthConfiguration.UserOptions == null)
         {
-            <div class="form-group text-info">
-                User Options not set through configuration.
-            </div>
+        <div class="form-group text-info">
+            User Options not set through configuration.
+        </div>
         }
         else
         {
-            <div class="form-group">
-                <label class="control-label">Allowed Username Characters</label>
-                <input asp-for="AccAuthConfiguration.UserOptions.AllowedUserNameCharacters" class="form-control" readonly />
-            </div>
-            <div class="form-group">
-                @if (Model.AccAuthConfiguration.UserOptions.RequireUniqueEmail)
+        <div class="form-group">
+            <label class="control-label">Allowed Username Characters</label>
+            <input asp-for="AccAuthConfiguration.UserOptions.AllowedUserNameCharacters" class="form-control" readonly />
+        </div>
+        <div class="form-group">
+            @if (Model.AccAuthConfiguration.UserOptions.RequireUniqueEmail)
                 {<i class="far fa-check-square"></i> }
                 else
                 { <i class="far fa-square"></i>}
-                @*<input asp-for="AccAuthUser.IsActive" type="checkbox" class="form-check-input" disabled />*@
-                <label class="form-check-label">Require Unique Email</label>
-            </div>
+            @*<input asp-for="AccAuthUser.IsActive" type="checkbox" class="form-check-input" disabled />*@
+            <label class="form-check-label">Require Unique Email</label>
+        </div>
         }
     </div>
 </div>
@@ -134,53 +134,53 @@
 
         @if (Model.AccAuthConfiguration.PasswordOptions == null)
         {
-            <div class="form-group text-info">
-                Password Options not set through configuration.
-            </div>
+        <div class="form-group text-info">
+            Password Options not set through configuration.
+        </div>
         }
         else
         {
-            <div class="form-group">
-                <label class="control-label">Required Length</label>
-                <input asp-for="AccAuthConfiguration.PasswordOptions.RequiredLength" class="form-control" readonly />
-            </div>
-            <div class="form-group">
-                <label class="control-label">Required Unique Characters</label>
-                <input asp-for="AccAuthConfiguration.PasswordOptions.RequiredUniqueChars" class="form-control" readonly />
-            </div>
-            <div class="form-group">
-                @if (Model.AccAuthConfiguration.PasswordOptions.RequireNonAlphanumeric)
+        <div class="form-group">
+            <label class="control-label">Required Length</label>
+            <input asp-for="AccAuthConfiguration.PasswordOptions.RequiredLength" class="form-control" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label">Required Unique Characters</label>
+            <input asp-for="AccAuthConfiguration.PasswordOptions.RequiredUniqueChars" class="form-control" readonly />
+        </div>
+        <div class="form-group">
+            @if (Model.AccAuthConfiguration.PasswordOptions.RequireNonAlphanumeric)
                 {<i class="far fa-check-square"></i> }
                 else
                 { <i class="far fa-square"></i>}
-                @*<input asp-for="AccAuthUser.IsActive" type="checkbox" class="form-check-input" disabled />*@
-                <label class="form-check-label">Require Non Alphanumeric</label>
-            </div>
-            <div class="form-group">
-                @if (Model.AccAuthConfiguration.PasswordOptions.RequireLowercase)
+            @*<input asp-for="AccAuthUser.IsActive" type="checkbox" class="form-check-input" disabled />*@
+            <label class="form-check-label">Require Non Alphanumeric</label>
+        </div>
+        <div class="form-group">
+            @if (Model.AccAuthConfiguration.PasswordOptions.RequireLowercase)
                 {<i class="far fa-check-square"></i> }
                 else
                 { <i class="far fa-square"></i>}
-                @*<input asp-for="AccAuthUser.IsActive" type="checkbox" class="form-check-input" disabled />*@
-                <label class="form-check-label">Require Lowercase</label>
-            </div>
-            <div class="form-group">
-                @if (Model.AccAuthConfiguration.PasswordOptions.RequireUppercase)
+            @*<input asp-for="AccAuthUser.IsActive" type="checkbox" class="form-check-input" disabled />*@
+            <label class="form-check-label">Require Lowercase</label>
+        </div>
+        <div class="form-group">
+            @if (Model.AccAuthConfiguration.PasswordOptions.RequireUppercase)
                 {<i class="far fa-check-square"></i> }
                 else
                 { <i class="far fa-square"></i>}
-                @*<input asp-for="AccAuthUser.IsActive" type="checkbox" class="form-check-input" disabled />*@
-                <label class="form-check-label">Require Uppercase</label>
-            </div>
+            @*<input asp-for="AccAuthUser.IsActive" type="checkbox" class="form-check-input" disabled />*@
+            <label class="form-check-label">Require Uppercase</label>
+        </div>
 
-            <div class="form-group">
-                @if (Model.AccAuthConfiguration.PasswordOptions.RequireDigit)
+        <div class="form-group">
+            @if (Model.AccAuthConfiguration.PasswordOptions.RequireDigit)
                 {<i class="far fa-check-square"></i> }
                 else
                 { <i class="far fa-square"></i>}
-                @*<input asp-for="AccAuthUser.IsActive" type="checkbox" class="form-check-input" disabled />*@
-                <label class="form-check-label">Require Digit</label>
-            </div>
+            @*<input asp-for="AccAuthUser.IsActive" type="checkbox" class="form-check-input" disabled />*@
+            <label class="form-check-label">Require Digit</label>
+        </div>
         }
     </div>
 </div>
@@ -193,29 +193,29 @@
 
         @if (Model.AccAuthConfiguration.LockoutOptions == null)
         {
-            <div class="form-group text-info">
-                Lockout Options not set through configuration.
-            </div>
+        <div class="form-group text-info">
+            Lockout Options not set through configuration.
+        </div>
         }
         else
         {
 
-            <div class="form-group">
-                @if (Model.AccAuthConfiguration.LockoutOptions.AllowedForNewUsers)
+        <div class="form-group">
+            @if (Model.AccAuthConfiguration.LockoutOptions.AllowedForNewUsers)
                 {<i class="far fa-check-square"></i> }
                 else
                 { <i class="far fa-square"></i>}
-                @*<input asp-for="AccAuthUser.IsActive" type="checkbox" class="form-check-input" disabled />*@
-                <label class="form-check-label">Allowed For New Users</label>
-            </div>
-            <div class="form-group">
-                <label class="control-label">Max Failed Access Attempts</label>
-                <input asp-for="AccAuthConfiguration.LockoutOptions.MaxFailedAccessAttempts" class="form-control" readonly />
-            </div>
-            <div class="form-group">
-                <label class="control-label">Default Lockout Time Span</label>
-                <input asp-for="AccAuthConfiguration.LockoutOptions.DefaultLockoutTimeSpan" class="form-control" readonly />
-            </div>
+            @*<input asp-for="AccAuthUser.IsActive" type="checkbox" class="form-check-input" disabled />*@
+            <label class="form-check-label">Allowed For New Users</label>
+        </div>
+        <div class="form-group">
+            <label class="control-label">Max Failed Access Attempts</label>
+            <input asp-for="AccAuthConfiguration.LockoutOptions.MaxFailedAccessAttempts" class="form-control" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label">Default Lockout Time Span</label>
+            <input asp-for="AccAuthConfiguration.LockoutOptions.DefaultLockoutTimeSpan" class="form-control" readonly />
+        </div>
         }
     </div>
 </div>
@@ -228,28 +228,28 @@
 
         @if (Model.AccAuthConfiguration.SignInOptions == null)
         {
-            <div class="form-group text-info">
-                Sign-In Options not set through configuration.
-            </div>
+        <div class="form-group text-info">
+            Sign-In Options not set through configuration.
+        </div>
         }
         else
         {
-            <div class="form-group">
-                @if (Model.AccAuthConfiguration.SignInOptions.RequireConfirmedEmail)
+        <div class="form-group">
+            @if (Model.AccAuthConfiguration.SignInOptions.RequireConfirmedEmail)
                 {<i class="far fa-check-square"></i> }
                 else
                 { <i class="far fa-square"></i>}
-                @*<input asp-for="AccAuthUser.IsActive" type="checkbox" class="form-check-input" disabled />*@
-                <label class="form-check-label">Require Confirmed Email</label>
-            </div>
-            <div class="form-group">
-                @if (Model.AccAuthConfiguration.SignInOptions.RequireConfirmedPhoneNumber)
+            @*<input asp-for="AccAuthUser.IsActive" type="checkbox" class="form-check-input" disabled />*@
+            <label class="form-check-label">Require Confirmed Email</label>
+        </div>
+        <div class="form-group">
+            @if (Model.AccAuthConfiguration.SignInOptions.RequireConfirmedPhoneNumber)
                 {<i class="far fa-check-square"></i> }
                 else
                 { <i class="far fa-square"></i>}
-                @*<input asp-for="AccAuthUser.IsActive" type="checkbox" class="form-check-input" disabled />*@
-                <label class="form-check-label">Require Confirmed Phone Number</label>
-            </div>
+            @*<input asp-for="AccAuthUser.IsActive" type="checkbox" class="form-check-input" disabled />*@
+            <label class="form-check-label">Require Confirmed Phone Number</label>
+        </div>
         }
     </div>
 </div>

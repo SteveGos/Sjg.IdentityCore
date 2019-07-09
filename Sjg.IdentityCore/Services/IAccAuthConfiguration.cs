@@ -9,9 +9,9 @@ namespace Sjg.IdentityCore.Services
     public interface IAccAuthConfiguration  // : IValidatableObject
     {
         /// <summary>
-        /// AppFolderPath is used to resolve URL... 
+        /// AppFolderPath is used to resolve URL...
         /// <para/>
-        /// https://testapps.itd.idaho.gov/apps/qasp/Identity/Account/Register  
+        /// https://testapps.itd.idaho.gov/apps/qasp/Identity/Account/Register
         /// <para/>
         /// AppFolderPath = /apps/qasp
         /// <para/>
@@ -20,7 +20,6 @@ namespace Sjg.IdentityCore.Services
         /// </summary>
         [Display(Name = "AppFolderPath")]
         string AppFolderPath { get; }
-
 
         /// <summary>
         /// Site Title used in Access Authorization Navigation Bar
