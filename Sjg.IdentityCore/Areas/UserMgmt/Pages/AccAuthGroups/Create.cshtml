@@ -1,0 +1,46 @@
+﻿@page
+@model Sjg.IdentityCore.Areas.UserMgmt.Pages.AccAuthGroups.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h2>Create</h2>
+
+<h4>AccAuthGroup</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group">
+                <label asp-for="AccAuthGroup.Group" class="control-label"></label>
+                <input asp-for="AccAuthGroup.Group" class="form-control" />
+                <span asp-validation-for="AccAuthGroup.Group" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="AccAuthGroup.Description" class="control-label"></label>
+                <input asp-for="AccAuthGroup.Description" class="form-control" />
+                <span asp-validation-for="AccAuthGroup.Description" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="AccAuthGroup.Category" class="control-label"></label>
+                <input asp-for="AccAuthGroup.Category" class="form-control" />
+                <span asp-validation-for="AccAuthGroup.Category" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-success" />
+                <a asp-page="../GroupMgmt" class="btn btn-danger">Cancel</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

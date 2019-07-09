@@ -1,0 +1,28 @@
+﻿@model Sjg.IdentityCore.Views.Email.AccAuth.AccAuthInvitationViewModel
+
+<p>
+    Hello @Model.DisplayName,
+</p>
+<p>
+    This is an invitation to register for @Model.ApplicationName using the registration code @Model.Code and this email address.
+</p>
+<p>
+    Please follow link below for @Model.ApplicationName registration::
+</p>
+<p>
+    <a href="@Html.Raw(Model.CallBackUrl)">Register</a>
+</p>
+<p>
+    If you are unable to follow the email link, please cut and past this address into your browser:
+</p>
+<p>
+    @Model.CallBackUrl
+</p>
+<p>
+    If you have gotten this email in error, we apologize and please disregard.
+</p>
+<p>
+    Thank-you.
+</p>
+
+@await Html.PartialAsync("Email/AccAuth/AccAuthEmailFooter")

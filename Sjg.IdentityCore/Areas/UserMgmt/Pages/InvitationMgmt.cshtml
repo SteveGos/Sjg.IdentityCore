@@ -1,0 +1,122 @@
+﻿@page
+@model Sjg.IdentityCore.Areas.UserMgmt.Pages.InvitationMgmtModel
+@inject Sjg.IdentityCore.Services.IAccAuthConfiguration accAuthConfiguration
+
+@{
+    ViewData["Title"] = "Invitations";
+
+    var emailDir = string.Empty;
+    var expirationDir = string.Empty;
+    var diaplayNameDir = string.Empty;
+
+    switch (Model.SortOrder.ToLower())
+    {
+        case "email_asc":
+            emailDir = "fa-sort-alpha-up"; // "fa-sort-up";
+            break;
+        case "email_desc":
+            emailDir = "fa-sort-alpha-down"; //"fa-sort-down";
+            break;
+        case "expiration_asc":
+            expirationDir = "fa-sort-alpha-up"; // "fa-sort-up";
+            break;
+        case "expiration_desc":
+            expirationDir = "fa-sort-alpha-down"; //"fa-sort-down";
+            break;
+        case "displayname_asc":
+            diaplayNameDir = "fa-sort-alpha-up"; // "fa-sort-up";
+            break;
+        case "displayname_desc":
+            diaplayNameDir = "fa-sort-alpha-down"; //"fa-sort-down";
+            break;
+        default:
+            break;
+    }
+}
+
+<header>
+    <h5>@ViewData["Title"]</h5>
+</header>
+
+<hr />
+
+<form asp-page="./InvitationMgmt" method="get">
+    <div class="input-group">
+        <input type="text" class="form-control" id="SearchFor" name="SearchFor" aria-describedby="emailHelp" placeholder="Search" value="@Model.SearchFor">
+        @*<small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>*@
+        <div class="input-group-append">
+            <button type="submit" class="btn btn-primary">Search</button>
+            <a class="btn btn-secondary" asp-page="./InvitationMgmt">Clear</a>
+            <a class="btn btn-secondary" asp-page="./AccAuthInvites/Create">Add</a>
+        </div>
+    </div>
+</form>
+
+<br />
+
+<partial name="_ValidationSummary" for="ViewData.ModelState" />
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                <a asp-page="./InvitationMgmt"
+                   asp-route-sortOrder="@Model.EmailSort"
+                   asp-route-grid_Page="1"
+                   asp-route-grid_Pagecount="@Model.GridPagerModel.Grid_Pagecount"
+                   asp-route-SearchFor="@Model.SearchFor"
+                   asp-route-grid_Pagesize="@Model.GridPagerModel.Grid_Pagesize"
+                   asp-route-grid_Buttoncount="@Model.GridPagerModel.Grid_Buttoncount">
+                    @Html.DisplayNameFor(model => model.GridData[0].Email)
+                    <i class="fas @emailDir"></i>
+                </a>
+            </th>
+            <th>
+                <a asp-page="./InvitationMgmt"
+                   asp-route-sortOrder="@Model.DisplayNameSort"
+                   asp-route-grid_Page="1"
+                   asp-route-grid_Pagecount="@Model.GridPagerModel.Grid_Pagecount"
+                   asp-route-SearchFor="@Model.SearchFor"
+                   asp-route-grid_Pagesize="@Model.GridPagerModel.Grid_Pagesize"
+                   asp-route-grid_Buttoncount="@Model.GridPagerModel.Grid_Buttoncount">
+                    @Html.DisplayNameFor(model => model.GridData[0].DisplayName)
+                    <i class="fas @diaplayNameDir"></i>
+                </a>
+            </th>
+            <th>
+                <a asp-page="./InvitationMgmt"
+                   asp-route-sortOrder="@Model.ExpirationSort"
+                   asp-route-grid_Page="1"
+                   asp-route-grid_Pagecount="@Model.GridPagerModel.Grid_Pagecount"
+                   asp-route-SearchFor="@Model.SearchFor"
+                   asp-route-grid_Pagesize="@Model.GridPagerModel.Grid_Pagesize"
+                   asp-route-grid_Buttoncount="@Model.GridPagerModel.Grid_Buttoncount">
+                    @Html.DisplayNameFor(model => model.GridData[0].ExpirationDateUtc)
+                    <i class="fas @expirationDir"></i>
+                </a>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.GridData)
+        {
+            <tr>
+                <td>
+                    <a asp-page="/AccAuthInvites/Details" asp-route-id="@item.AccAuthInviteId">@item.Email</a>
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DisplayName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ExpirationDateUtc)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<acc-auth-grid-pager grid_pagecount="@Model.GridPagerModel.Grid_Pagecount"
+                     grid_page="@Model.GridPagerModel.Grid_Page"
+                     grid_pagesize="@Model.GridPagerModel.Grid_Pagesize"
+                     grid_buttoncount="@Model.GridPagerModel.Grid_Buttoncount"
+                     url="./InvitationMgmt">
+</acc-auth-grid-pager>

@@ -1,0 +1,12 @@
+﻿@page
+@model LockoutModel
+@{
+    ViewData["Title"] = "Locked out";
+}
+<header>
+    <h2 class="text-danger">@ViewData["Title"]</h2>
+</header>
+
+<partial name="_ValidationSummary" for="ViewData.ModelState" />
+
+<p class="text-danger">This account has been locked out, please try again later.</p>

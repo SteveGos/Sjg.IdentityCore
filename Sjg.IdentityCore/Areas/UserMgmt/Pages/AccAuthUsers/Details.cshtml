@@ -1,0 +1,198 @@
+﻿@page
+@model Sjg.IdentityCore.Areas.UserMgmt.Pages.AccAuthUsers.DetailsModel
+@{
+    ViewData["Title"] = "User Information";
+}
+
+<h5>
+    @ViewData["Title"]
+    @if (Model.AccAuthUser != null)
+    {
+    <small>
+        &nbsp;&nbsp;
+        <a asp-page="./Roles" asp-route-id="@Model.AccAuthUser.Id">Roles</a>
+    </small>
+    }
+</h5>
+
+<partial name="_ValidationSummary" for="ViewData.ModelState" />
+
+<hr />
+
+@if (Model.AccAuthUser != null)
+{
+<div class="row form-horizontal">
+    <div class="col-12 col-md-6">
+        <div class="form-group">
+            <label asp-for="AccAuthUser.UserName" class="control-label"></label>
+            <input asp-for="AccAuthUser.UserName" class="form-control" readonly />
+        </div>
+        <div class="form-group">
+            <label asp-for="AccAuthUser.Email" class="control-label"></label>
+            <input asp-for="AccAuthUser.Email" class="form-control" readonly />
+        </div>
+        <div class="form-group">
+            <label asp-for="AccAuthUser.PhoneNumber" class="control-label"></label>
+            <input asp-for="AccAuthUser.PhoneNumber" class="form-control" readonly />
+        </div>
+        <div class="form-group">
+            <label asp-for="AccAuthUser.AccessFailedCount" class="control-label"></label>
+            <input asp-for="AccAuthUser.AccessFailedCount" class="form-control" readonly />
+        </div>
+    </div>
+
+    <div class="d-md-none col-12">
+        <hr />
+    </div>
+
+    <div class="col-12 col-md-6">
+        <div>
+            @if (Model.AccAuthUser.IsActive)
+                {<i class="far fa-check-square"></i> }
+                else
+                { <i class="far fa-square"></i>}
+            @*<input asp-for="AccAuthUser.IsActive" type="checkbox" class="form-check-input" disabled />*@
+            <label asp-for="AccAuthUser.IsActive" class="form-check-label @(@Model.AccAuthUser.IsActive ? "" : "text-danger")"></label>
+        </div>
+        <div>
+            @if (Model.AccAuthUser.IsFrozen)
+                {<i class="far fa-check-square"></i> }
+                else
+                { <i class="far fa-square"></i>}
+            @*<input asp-for="AccAuthUser.IsFrozen" type="checkbox" class="form-check-input" />*@
+            <label asp-for="AccAuthUser.IsFrozen" class="form-check-label @(@Model.AccAuthUser.IsFrozen ? "text-danger" : "")"></label>
+        </div>
+        <div>
+            @if (Model.IsLockedOut)
+                {<i class="far fa-check-square"></i> }
+                else
+                { <i class="far fa-square"></i>}
+            @*<input asp-for="IsLockedOut" type="checkbox" class="form-check-input" />*@
+            <label asp-for="IsLockedOut" class="form-check-label @(@Model.IsLockedOut ? "text-danger" : "")"></label>
+        </div>
+        <div>
+            @if (Model.AccAuthUser.IsServiceAccount)
+                {<i class="far fa-check-square"></i> }
+                else
+                { <i class="far fa-square"></i>}
+            @*<input asp-for="AccAuthUser.IsServiceAccount" type="checkbox" class="form-check-input" />*@
+            <label asp-for="AccAuthUser.IsServiceAccount" class="form-check-label"></label>
+        </div>
+        <div>
+            @if (Model.AccAuthUser.IsInternalServiceAccount)
+                {<i class="far fa-check-square"></i> }
+                else
+                { <i class="far fa-square"></i>}
+            @*<input asp-for="AccAuthUser.IsInternalServiceAccount" type="checkbox" class="form-check-input" />*@
+            <label asp-for="AccAuthUser.IsInternalServiceAccount" class="form-check-label"></label>
+        </div>
+        <div>
+            @if (Model.AccAuthUser.PasswordNeverExpires)
+                {<i class="far fa-check-square"></i> }
+                else
+                { <i class="far fa-square"></i>}
+            @*<input asp-for="AccAuthUser.PasswordNeverExpires" type="checkbox" class="form-check-input" />*@
+            <label asp-for="AccAuthUser.PasswordNeverExpires" class="form-check-label"></label>
+        </div>
+        <div>
+            @if (Model.AccAuthUser.EmailConfirmed)
+                {<i class="far fa-check-square"></i> }
+                else
+                { <i class="far fa-square"></i>}
+            @*<input asp-for="AccAuthUser.EmailConfirmed" type="checkbox" class="form-check-input" />*@
+            <label asp-for="AccAuthUser.EmailConfirmed" class="form-check-label @(@Model.AccAuthUser.EmailConfirmed ? "" : "text-danger")"></label>
+        </div>
+        <div>
+            @if (Model.AccAuthUser.LockoutEnabled)
+                {<i class="far fa-check-square"></i> }
+                else
+                { <i class="far fa-square"></i>}
+            @*<input asp-for="AccAuthUser.LockoutEnabled" type="checkbox" class="form-check-input" />*@
+            <label asp-for="AccAuthUser.LockoutEnabled" class="form-check-label"></label>
+        </div>
+        <div>
+            @if (Model.AccAuthUser.PhoneNumberConfirmed)
+                {<i class="far fa-check-square"></i> }
+                else
+                { <i class="far fa-square"></i>}
+            @*<input asp-for="AccAuthUser.PhoneNumberConfirmed" type="checkbox" class="form-check-input" />*@
+            <label asp-for="AccAuthUser.PhoneNumberConfirmed" class="form-check-label"></label>
+        </div>
+        <div>
+            @if (Model.AccAuthUser.TwoFactorEnabled)
+                {<i class="far fa-check-square"></i> }
+                else
+                { <i class="far fa-square"></i>}
+            @*<input asp-for="AccAuthUser.TwoFactorEnabled" type="checkbox" class="form-check-input" />*@
+            <label asp-for="AccAuthUser.TwoFactorEnabled" class="form-check-label"></label>
+        </div>
+        <div>
+            @if (Model.AccAuthUser.IsActiveDirectoryUser)
+                {<i class="far fa-check-square"></i> }
+                else
+                { <i class="far fa-square"></i>}
+            @*<input asp-for="AccAuthUser.IsActiveDirectoryUser" type="checkbox" class="form-check-input" />*@
+            <label asp-for="AccAuthUser.IsActiveDirectoryUser" class="form-check-label"></label>
+        </div>
+    </div>
+</div>
+
+<div class="row form-horizontal">
+    <div class="col-12">
+        <hr />
+    </div>
+
+    <div class="col-12 col-md-4">
+        <label asp-for="AccAuthUser.LastLoginDateTimeUtc" class="control-label"></label>
+        <input asp-for="AccAuthUser.LastLoginDateTimeUtc" class="form-control" readonly />
+    </div>
+    <div class="col-12 col-md-4">
+        <label asp-for="AccAuthUser.LastPasswordChangeDateTimeUtc" class="control-label"></label>
+        <input asp-for="AccAuthUser.LastPasswordChangeDateTimeUtc" class="form-control" readonly />
+    </div>
+</div>
+<div class="row form-horizontal">
+    <div class="col-12">
+        <hr />
+    </div>
+
+    <div class="col-12 col-md-4">
+        <label asp-for="AccAuthUser.LastEmailConfirmedUtc" class="control-label"></label>
+        <input asp-for="AccAuthUser.LastLoginDateTimeUtc" class="form-control" readonly />
+    </div>
+    <div class="col-12 col-md-8">
+        <label asp-for="AccAuthUser.EmailDomainName" class="control-label"></label>
+        <input asp-for="AccAuthUser.EmailDomainName" class="form-control" readonly />
+    </div>
+</div>
+
+<hr />
+<form method="post">
+    @Html.Hidden("Id", Model.AccAuthUser.Id)
+
+    <div class="form-group row">
+
+        <a class="btn btn-outline-secondary" asp-area="UserMgmt" asp-page="/Index">Back</a>
+        &nbsp;&nbsp;
+        <div class="dropdown">
+            <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Actions
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <input type="submit" name="command" value="@DetailsModel.btnActive" class="btn btn-link" onclick="return confirm('Confirm Action?')" />
+                <input type="submit" name="command" value="@DetailsModel.btnFrozen" class="btn btn-link" onclick="return confirm('Confirm Action?')" />
+                <input type="submit" name="command" value="@DetailsModel.btnClearLockout" class="btn btn-link" onclick="return confirm('Confirm Action?')" />
+                <input type="submit" name="command" value="@DetailsModel.btnChangeSvcAccount" class="btn btn-link" onclick="return confirm('Confirm Action?')" />
+                <input type="submit" name="command" value="@DetailsModel.btnRemove" class="btn btn-link" onclick="return confirm('Confirm Action?')" />
+            </div>
+        </div>
+
+        @*<button type="submit" name="command" value="@DetailsModel.btnActive" class="btn btn-link"><i class="fas fa-toggle-off"></i></button>*@
+    </div>
+</form>
+
+}
+else
+{
+<a class="btn btn-outline-secondary" asp-area="UserMgmt" asp-page="/Index">Back</a>
+}

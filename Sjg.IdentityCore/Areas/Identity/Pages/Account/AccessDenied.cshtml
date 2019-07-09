@@ -1,0 +1,22 @@
+﻿@page
+@model AccessDeniedModel
+
+@{
+    ViewData["Title"] = "Access denied";
+}
+
+<partial name="_ValidationSummary" for="ViewData.ModelState" />
+
+<div>
+    <h2 class="text-danger text-center">@ViewData["Title"]</h2>
+    <p class="text-danger text-center">You do not have permission to view this resource.</p>
+</div>
+
+@*<div class="d-md-none">
+        <h2 class="text-danger text-center">@ViewData["Title"]</h2>
+        <p class="text-danger text-center">You do not have permission to view this resource.</p>
+    </div>*@
+
+@*<div class="d-none d-md-block">
+        <img src="403xxxx.png" alt="403 Access Denied" class="img-fluid" />
+    </div>*@

@@ -1,0 +1,100 @@
+﻿@page
+@model Sjg.IdentityCore.Areas.UserMgmt.Pages.AccAuthRoles.RoleUserAddModel
+@{
+    ViewData["Title"] = "Associate";
+
+    var mailDir = string.Empty;
+
+    switch (Model.SortOrder.ToLower())
+    {
+        case "mail_asc":
+            mailDir = "fa-sort-alpha-up"; // "fa-sort-up";
+            break;
+        case "mail_desc":
+            mailDir = "fa-sort-alpha-down"; //"fa-sort-down";
+            break;
+        default:
+            break;
+    }
+}
+
+<h5>
+    @ViewData["Title"]
+    <small>
+        &nbsp;&nbsp;
+        <a asp-page="./RoleUsers" asp-route-id="@Model.AccessRole.Id">Back</a>
+    </small>
+</h5>
+
+<hr />
+
+<partial name="_AccessRoleHeader" for="AccessRole" />
+
+<form asp-page="./RoleUserAdd" method="get">
+    <input type="hidden" asp-for="Id" />
+    <div class="input-group">
+        <input type="text" class="form-control" id="SearchFor" name="SearchFor" aria-describedby="emailHelp" placeholder="Search" value="@Model.SearchFor">
+        @*<small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>*@
+        <div class="input-group-append">
+            <button type="submit" class="btn btn-primary">Search</button>
+            <a class="btn btn-secondary" asp-page="./RoleUserAdd" asp-route-id="@Model.Id">Clear</a>
+        </div>
+    </div>
+</form>
+
+<hr />
+
+<partial name="_ValidationSummary" for="ViewData.ModelState" />
+
+<h5>Users</h5>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th></th>
+            <th>
+                <a asp-page="./RoleUserAdd"
+                   asp-route-id="@Model.AccessRole.Id"
+                   asp-route-sortOrder="@Model.MailSort"
+                   asp-route-SearchFor="@Model.SearchFor"
+                   asp-route-grid_Page="1"
+                   asp-route-grid_Pagecount="@Model.GridPagerModel.Grid_Pagecount"
+                   asp-route-grid_Pagesize="@Model.GridPagerModel.Grid_Pagesize"
+                   asp-route-grid_Buttoncount="@Model.GridPagerModel.Grid_Buttoncount">
+                    @Html.DisplayNameFor(model => model.GridData[0].Email)
+                    <i class="fas @mailDir"></i>
+                </a>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.GridData)
+        {
+        <tr>
+            <td>
+                <a asp-page="/AccAuthRoles/RoleUserAdd"
+                   onclick="return confirm('Confirm Addition of User to Role.')"
+                   asp-route-id="@Model.Id"
+                   asp-route-addid="@item.Id"
+                   asp-route-sortOrder="@Model.SortOrder"
+                   asp-route-SearchFor="@Model.SearchFor"
+                   asp-route-grid_page="@Model.GridPagerModel.Grid_Page"
+                   asp-route-grid_pagecount="@Model.GridPagerModel.Grid_Pagecount"
+                   asp-route-grid_pagesize="@Model.GridPagerModel.Grid_Pagesize"
+                   asp-route-grid_buttoncount="@Model.GridPagerModel.Grid_Buttoncount">
+                    Add
+                </a>
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>
+<acc-auth-grid-pager grid_pagecount="@Model.GridPagerModel.Grid_Pagecount"
+                     grid_page="@Model.GridPagerModel.Grid_Page"
+                     grid_pagesize="@Model.GridPagerModel.Grid_Pagesize"
+                     grid_buttoncount="@Model.GridPagerModel.Grid_Buttoncount"
+                     url="./RoleUsers">
+</acc-auth-grid-pager>

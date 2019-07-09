@@ -1,0 +1,15 @@
+﻿@page
+@model ConfirmEmailSentModel
+@{
+    ViewData["Title"] = "Confirmation Email Sent";
+}
+<header>
+    <h2>@ViewData["Title"]</h2>
+</header>
+
+<partial name="_ValidationSummary" for="ViewData.ModelState" />
+
+<p>Please check your email for a Confirmation.  Once received, follow the instructions in the email.</p>
+<p>
+    <a asp-page="/Index">Click here to return to Home Page</a>
+</p>

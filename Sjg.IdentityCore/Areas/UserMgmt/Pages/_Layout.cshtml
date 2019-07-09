@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+@{
+    // Get the RCL build date.  Set with Pre-Build Event.
+    var version = Sjg.IdentityCore.BuildDate.GetDateTimeVersion();
+}
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] 2</title>
+
+    @* CSS ================================================== *@
+    @*  from embedded static resources - use ?v=@version *@
+    <link rel="stylesheet" href="~/Sjg.IdentityCore/bootstrap/dist/css/bootstrap.css?v=@version" asp-append-version="true" />
+    <link rel="stylesheet" href="~/Sjg.IdentityCore/fontawesome/css/all.css?v=@version" asp-append-version="true">
+    <link rel="stylesheet" href="~/Sjg.IdentityCore/css/site_UserMgmt.css?v=@version" asp-append-version="true" />
+</head>
+
+<body>
+
+    @* NAVBAR ================================================== *@
+    @await Html.PartialAsync("_Navbar")
+
+    @* Body ================================================== *@
+    <div class="container site-container">
+        @RenderBody()
+    </div>
+
+    @* Footer ================================================== *@
+    <div class="container mt-3">
+        <footer>
+            &copy; 2019 <a asp-area="Identity" asp-page="/Account/SjgIdentityCore">Sjg.IdentityCore</a>
+        </footer>
+    </div>
+
+    @* JavaScript ================================================== *@
+    @*  from embedded static resources - use ?v=@version *@
+    <script src="~/Sjg.IdentityCore/jquery/jquery.slim.js?v=@version" asp-append-version="true"></script>
+    <script src="~/Sjg.IdentityCore/popper.js/umd/popper.js?v=@version" asp-append-version="true"></script>
+    <script src="~/Sjg.IdentityCore/bootstrap/dist/js/bootstrap.js?v=@version" asp-append-version="true"></script>
+
+    <script src="~/Sjg.IdentityCore/qrcode/qrcode.js?v=@version"></script>
+
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

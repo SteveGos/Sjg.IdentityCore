@@ -1,0 +1,16 @@
+﻿@page
+@model LogoutModel
+@{
+    ViewData["Title"] = "Log out";
+}
+<header>
+    <h2>@ViewData["Title"]</h2>
+</header>
+
+<partial name="_ValidationSummary" for="ViewData.ModelState" />
+
+<p>You have successfully logged out of the application.</p>
+
+<p>
+    <i class="fa fa-home fa-fw"></i>&nbsp;<a class="navbar-brand" asp-area="" asp-page="/Index">Home</a>
+</p>

@@ -1,0 +1,33 @@
+﻿{
+  "version": "1.0",
+  "defaultProvider": "cdnjs",
+  "libraries": [
+    {
+      "library": "jquery@3.4.1",
+      "destination": "resources/Sjg.IdentityCore/jquery/"
+    },
+    {
+      "provider": "unpkg",
+      "library": "bootstrap@4.3.1",
+      "destination": "resources/Sjg.IdentityCore/bootstrap"
+    },
+    {
+      "library": "jquery-validation-unobtrusive@3.2.11",
+      "destination": "resources/Sjg.IdentityCore/jquery-validation-unobtrusive/"
+    },
+    {
+      "provider": "unpkg",
+      "library": "jquery-validation@1.19.0",
+      "destination": "resources/Sjg.IdentityCore/jquery-validation/"
+    },
+    {
+      "library": "popper.js@1.15.0",
+      "destination": "resources/Sjg.IdentityCore/popper.js/"
+    },
+    {
+      "library": "font-awesome@5.8.2",
+      "destination": "resources/Sjg.IdentityCore/fontawesome/"
+    }
+
+  ]
+}

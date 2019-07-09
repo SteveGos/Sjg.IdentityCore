@@ -1,0 +1,24 @@
+﻿@page
+@model Sjg.IdentityCore.Areas.UserMgmt.Pages.AccAuthGroups.DetailsModel
+
+@{
+    ViewData["Title"] = "Access Group";
+}
+
+<h5>
+    @ViewData["Title"]
+
+    <small>
+        &nbsp;&nbsp;
+        <a asp-page="./Edit" asp-route-id="@Model.AccAuthGroup.AccAuthGroupId">Edit</a>
+        &nbsp;&nbsp;
+        <a asp-page="./Delete" asp-route-id="@Model.AccAuthGroup.AccAuthGroupId">Delete</a>
+        &nbsp;&nbsp;
+        <a asp-page="./GroupRoles" asp-route-id="@Model.AccAuthGroup.AccAuthGroupId">Roles</a>
+        &nbsp;&nbsp;
+        <a asp-page="../GroupMgmt">Back</a>
+    </small>
+</h5>
+<hr />
+
+<partial name="_AccAuthGroupHeader" for="AccAuthGroup" />

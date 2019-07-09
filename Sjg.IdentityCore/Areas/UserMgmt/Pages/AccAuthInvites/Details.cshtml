@@ -1,0 +1,43 @@
+﻿@page
+@model Sjg.IdentityCore.Areas.UserMgmt.Pages.AccAuthInvites.DetailsModel
+@{
+    ViewData["Title"] = "Invitation Details";
+}
+
+<h5>
+    @ViewData["Title"]
+
+    <small>
+        &nbsp;&nbsp;
+        <a asp-page="./Delete" asp-route-id="@Model.AccAuthInvite.AccAuthInviteId">Delete</a>
+        &nbsp;&nbsp;
+        <a asp-page="./InviteRoles" asp-route-id="@Model.AccAuthInvite.AccAuthInviteId">Roles</a>
+        &nbsp;&nbsp;
+        <a asp-page="../InvitationMgmt">Back</a>
+    </small>
+</h5>
+
+<partial name="_ValidationSummary" for="ViewData.ModelState" />
+
+<hr />
+
+<div class="row form-horizontal">
+    <div class="col-12 col-md-6">
+        <div class="form-group">
+            <label asp-for="AccAuthInvite.Email" class="control-label"></label>
+            <input asp-for="AccAuthInvite.Email" class="form-control" readonly />
+        </div>
+        <div class="form-group">
+            <label asp-for="AccAuthInvite.DisplayName" class="control-label"></label>
+            <input asp-for="AccAuthInvite.DisplayName" class="form-control" readonly />
+        </div>
+        <div class="form-group">
+            <label asp-for="AccAuthInvite.ExpirationDateUtc" class="control-label"></label>
+            <input asp-for="AccAuthInvite.ExpirationDateUtc" class="form-control" readonly />
+        </div>
+        <div class="form-group form-check">
+            <input asp-for="AccAuthInvite.IsServiceAccount" type="checkbox" class="form-check-input" disabled />
+            <label asp-for="AccAuthInvite.IsServiceAccount" class="form-check-label"></label>
+        </div>
+    </div>
+</div>
