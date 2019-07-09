@@ -13,7 +13,7 @@
               asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
               asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute"
               crossorigin="anonymous"
-              integrity="sha256-eSi1q2PG6J7g7ib17yAaWMcrr5GrtohYChqibrV7PBE="/>
+              integrity="sha256-eSi1q2PG6J7g7ib17yAaWMcrr5GrtohYChqibrV7PBE=" />
     </environment>
     <link rel="stylesheet" href="~/css/site.css" />
 </head>
@@ -34,8 +34,18 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-page="/Privacy">Privacy</a>
                         </li>
+
+                        @if (User.IsInRole(Sjg.IdentityCore.Areas.UserMgmt.Roles.UserAdministrator))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link" asp-area="UserMgmt" asp-page="/Index">Access</a>
+                            </li>
+                        }
                     </ul>
                 </div>
+
+                @await Html.PartialAsync("_LoginPartial")
+
             </div>
         </nav>
     </header>

@@ -11,6 +11,7 @@ using Microsoft.AspNetCore.Mvc.Infrastructure;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
+using Sjg.IdentityCore;
 
 namespace WebAppTest
 {
@@ -58,18 +59,14 @@ namespace WebAppTest
                     options.AllowAreas = true; // support areas in a Razor Pages application
                     options.Conventions.AuthorizeFolder("/"); // Authorize All Non-Area Razor Pages and Folders => /Pages
                     options.Conventions.AllowAnonymousToFolder("/Terms"); // Allow Anonymous on terms
-
-                    // Area -- Identity
-                    //options.Conventions.AllowAnonymousToAreaFolder("Identity", "/");
-                    //options.Conventions.AuthorizeAreaFolder("Identity", "/Account/Manage");
-
-                    // Area -- UserMgmt => based on Policy
-                    //options.Conventions.AuthorizeAreaFolder("UserMgmt", "/", "Areas.UserMgmt.Roles.UserAdministrator"); // All of Area
                 });
 
             // IHttpContextAccessor is no longer wired up by default, you have to register it yourself
             services.TryAddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.TryAddSingleton<IActionContextAccessor, ActionContextAccessor>();
+
+            // Sjg.IdentityCore - Razor Class Libraries Extensions (Static Files, etc...)
+            services.AddIdentityCoreExtensions(); // Adding Static Resources for Sjg.IdentityCore
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
