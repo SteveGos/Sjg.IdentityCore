@@ -1,9 +1,19 @@
-<Project Sdk="Microsoft.NET.Sdk.Razor">
+﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <Version>0.1.0</Version>
+    <Description>.Net Core Identity Extended</Description>
+    <Copyright>Copyright 2019 All Rights Reserved - S. Gossard</Copyright>
+    <PackageReleaseNotes>.Net Core Identity Extension</PackageReleaseNotes>
+    <GenerateEmbeddedFilesManifest>true</GenerateEmbeddedFilesManifest>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
 
+  <ItemGroup>
+    <EmbeddedResource Include="resources\**\*" />
+  </ItemGroup>
+  
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="2.2.0" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="2.2.0" />
@@ -14,4 +24,8 @@
   <ItemGroup>
     <Folder Include="Areas\UserMgmt\Pages\Views\" />
   </ItemGroup>
+
+  <Target Name="PreBuild" BeforeTargets="PreBuildEvent">
+    <Exec Command="echo %25date:~4,2%25-%25date:~7,2%25-%25date:~10,4%25 %25time%25 &gt; &quot;$(ProjectDir)\resources\Sjg.IdentityCore\BuildDate.txt&quot;" />
+  </Target>
 </Project>
