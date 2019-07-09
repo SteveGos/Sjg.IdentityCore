@@ -5,6 +5,8 @@ VisualStudioVersion = 16.0.29025.244
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sjg.IdentityCore", "Sjg.IdentityCore\Sjg.IdentityCore.csproj", "{1464E5F3-762C-4840-9EE4-C69BE97D1015}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebAppTest", "WebAppTest\WebAppTest.csproj", "{44481B4E-6EAB-437B-95F8-6ADAB199BCD3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{1464E5F3-762C-4840-9EE4-C69BE97D1015}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1464E5F3-762C-4840-9EE4-C69BE97D1015}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1464E5F3-762C-4840-9EE4-C69BE97D1015}.Release|Any CPU.Build.0 = Release|Any CPU
+		{44481B4E-6EAB-437B-95F8-6ADAB199BCD3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{44481B4E-6EAB-437B-95F8-6ADAB199BCD3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{44481B4E-6EAB-437B-95F8-6ADAB199BCD3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{44481B4E-6EAB-437B-95F8-6ADAB199BCD3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
