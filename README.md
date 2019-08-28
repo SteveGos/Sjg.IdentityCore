@@ -1,11 +1,11 @@
 # Sjg.IdentityCore
 Identity Framework - Extended/Enhanced
 
-This is a razor class library that entends / enhances `Microsoft.AspNetCore.Identity.EntityFrameworkCore`.  
+This is a razor class library that extends / enhances `Microsoft.AspNetCore.Identity.EntityFrameworkCore`.  
 
 It adds on the ability to 
 
-- managge users, 
+- manage users, 
 - allow the site to self register or register by invitation only.
 
 
@@ -14,7 +14,7 @@ See `appsettings.json` in project `WebAppTest` for integrating `Sjg.IdentityCore
 
 # Assigning an initial user as as an Access Administrator
 
-Self register a user that will be the User Administrator.  Give this user user administration authorizatin by 
+Self register a user that will be the User Administrator.  Give this user administration authorization by 
 putting him in the `Identity - User Administrator` role using the SQL below.
 
 ```SQL
@@ -83,6 +83,6 @@ The Roles for User administration must be set up.  This can be done in the start
 in `Startup.cs` in project `WebAppTest`.
 
 ```csharp
-// Sjg.IdentityCore - Establish Access/Authorization Roles for User Managament
+// Sjg.IdentityCore - Establish Access/Authorization Roles for User Management
 Task.Run(() => Sjg.IdentityCore.Areas.UserMgmt.Roles.SetUpRolesAsync(app.ApplicationServices));  // Process Asynchronously - no need to wait.
 ```
