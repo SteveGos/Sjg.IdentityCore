@@ -5,17 +5,20 @@
     <AspNetCoreHostingModel>InProcess</AspNetCoreHostingModel>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="Views\Email\AccAuth\_ReadMe.md" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Views\Email\AccAuth\_ReadMe.md" />
+  </ItemGroup>
+
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
     <PackageReference Include="NWebsec.AspNetCore.Middleware" Version="2.0.0" />
     <PackageReference Include="Sjg.IdentityCore" Version="1.0.0" />
-  </ItemGroup>
-
-
-  <ItemGroup>
-    <Folder Include="Views\Email\AccAuth\" />
   </ItemGroup>
 
 

@@ -1,0 +1,9 @@
+﻿@model Sjg.IdentityCore.Views.Email.AccAuth.AccAuthSendTwoStepViewModel
+
+@Model.ApplicationName Confirmation Code :: @Model.Code
+
+If you have gotten this email in error, we apologize and please disregard.
+
+Thank-you.
+
+@await Html.PartialAsync("Email/AccAuth/AccAuthEmailFooter.text")

@@ -1,0 +1,25 @@
+﻿@model Sjg.IdentityCore.Views.Email.AccAuth.AccAuthSendVerificationEmailViewModel
+
+<p>
+    Hello @Model.Username,
+</p>
+<p>
+    Please follow link below to confirm your account to @Model.ApplicationName::
+</p>
+<p>
+    <a href="@Html.Raw(Model.CallBackUrl)">Confirm Account</a>
+</p>
+<p>
+    If you are unable to follow the email link, please cut and past this address into your browser:
+</p>
+<p>
+    @Html.Raw(Model.CallBackUrl)
+</p>
+<p>
+    If you have gotten this email in error, we apologize and please disregard.
+</p>
+<p>
+    Thank-you.
+</p>
+
+@await Html.PartialAsync("Email/AccAuth/AccAuthEmailFooter")
