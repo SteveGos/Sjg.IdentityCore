@@ -76,3 +76,9 @@ VALUES
   ((SELECT Top 1 [Id] FROM [Sjg.IdentityCore].[AspNetUsers] Where [UserName] = @username),
    (SELECT Top 1 [Id] FROM [Sjg.IdentityCore].[AspNetRoles] Where [Name]     = @rolename))
 ```
+
+# Emails
+
+The Emails that are generated use template.  See the folder Views\Email\AccAuth and read the _ReadMe.md file.
+
+A Copy of the original templates are located in Views\Email\AccAuth_OriginalTemplates.
