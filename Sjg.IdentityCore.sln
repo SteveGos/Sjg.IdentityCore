@@ -3,9 +3,22 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29025.244
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sjg.IdentityCore", "Sjg.IdentityCore\Sjg.IdentityCore.csproj", "{1464E5F3-762C-4840-9EE4-C69BE97D1015}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sjg.IdentityCore", "Sjg.IdentityCore\Sjg.IdentityCore.csproj", "{1464E5F3-762C-4840-9EE4-C69BE97D1015}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebAppTest", "WebAppTest\WebAppTest.csproj", "{44481B4E-6EAB-437B-95F8-6ADAB199BCD3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebAppTest", "WebAppTest\WebAppTest.csproj", "{44481B4E-6EAB-437B-95F8-6ADAB199BCD3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Distribution", "Distribution", "{01AEA365-779E-4A06-AD0E-050C2A6423E5}"
+	ProjectSection(SolutionItems) = preProject
+		Distribution\README.md = Distribution\README.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Versions", "Versions", "{1305BEA0-4931-4EE6-814D-606C99E3EF7A}"
+	ProjectSection(SolutionItems) = preProject
+		Distribution\Versions\README.md = Distribution\Versions\README.md
+		Distribution\Versions\Sjg.IdentityCore.1.0.0.nupkg = Distribution\Versions\Sjg.IdentityCore.1.0.0.nupkg
+		Distribution\Versions\Sjg.IdentityCore.1.0.0.Remove.sql = Distribution\Versions\Sjg.IdentityCore.1.0.0.Remove.sql
+		Distribution\Versions\Sjg.IdentityCore.1.0.0.sql = Distribution\Versions\Sjg.IdentityCore.1.0.0.sql
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -24,6 +37,9 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{1305BEA0-4931-4EE6-814D-606C99E3EF7A} = {01AEA365-779E-4A06-AD0E-050C2A6423E5}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {EBA630E0-CC50-490A-BC91-3DF9B4F7059B}
