@@ -2,9 +2,9 @@
 
 Initial release.
 
-**Nuget Package**
+**NUGET Package**
 
--
+- Sjg.IdentityCore.1.0.0.mupkg
 
 **SQL Files:**
 

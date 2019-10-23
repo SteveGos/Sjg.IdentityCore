@@ -38,3 +38,4 @@ There will be a **REMOVE** script to back changes off if it is needed.
 
 If **Sjg.IdentityCore.2.5.2.sql** needs to be rolled back, **Sjg.IdentityCore.2.5.2.Remove.sql** will remove the changes that were applied.
 
+# SEE NOTES FOR MORE DETAILS
