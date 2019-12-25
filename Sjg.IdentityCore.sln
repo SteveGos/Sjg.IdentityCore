@@ -6,6 +6,7 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Distribution", "Distribution", "{01AEA365-779E-4A06-AD0E-050C2A6423E5}"
 	ProjectSection(SolutionItems) = preProject
 		Distribution\NOTES.md = Distribution\NOTES.md
+		Distribution\Advisories.md = Distribution\Advisories.md
 		Distribution\README.md = Distribution\README.md
 	EndProjectSection
 EndProject
