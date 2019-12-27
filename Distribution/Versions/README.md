@@ -4,7 +4,7 @@ Initial release.
 
 **Nuget Package**
 
--
+- Sjg.IdentityCore.1.0.0.nupkg
 
 **SQL Files:**
 
@@ -13,6 +13,10 @@ Initial release.
 - 
 
 # Version 1.0.0.1
+
+**Nuget Package**
+
+- Sjg.IdentityCore.1.0.0.1.nupkg
 
 Fix: 
 ApiBasicAuthorizeAttribute 
@@ -26,4 +30,3 @@ No changes Use:
 
 - Sjg.IdentityCore.1.0.0.sql
 - Sjg.IdentityCore.1.0.0.Remove.sql
-
