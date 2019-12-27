@@ -14,6 +14,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Versions", "Versions", "{13
 	ProjectSection(SolutionItems) = preProject
 		Distribution\Versions\README.md = Distribution\Versions\README.md
 		Distribution\Versions\Sjg.IdentityCore.1.0.0.nupkg = Distribution\Versions\Sjg.IdentityCore.1.0.0.nupkg
+		Distribution\Versions\Sjg.IdentityCore.1.0.0.1.nupkg = Distribution\Versions\Sjg.IdentityCore.1.0.0.1.nupkg
 		Distribution\Versions\Sjg.IdentityCore.1.0.0.Remove.sql = Distribution\Versions\Sjg.IdentityCore.1.0.0.Remove.sql
 		Distribution\Versions\Sjg.IdentityCore.1.0.0.sql = Distribution\Versions\Sjg.IdentityCore.1.0.0.sql
 	EndProjectSection
