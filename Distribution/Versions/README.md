@@ -2,11 +2,27 @@
 
 Initial release.
 
-**NUGET Package**
+**Nuget Package**
 
-- Sjg.IdentityCore.1.0.0.mupkg
+-
 
 **SQL Files:**
+
+- Sjg.IdentityCore.1.0.0.sql
+- Sjg.IdentityCore.1.0.0.Remove.sql
+- 
+
+# Version 1.0.0.1
+
+Fix: 
+ApiBasicAuthorizeAttribute 
+
+- Allow Internal Service Accounts when utilizing Custom User Authentication.  Internal Service Accounts not tied to Custom User Authentication
+
+
+**SQL Files:**
+
+No changes Use:
 
 - Sjg.IdentityCore.1.0.0.sql
 - Sjg.IdentityCore.1.0.0.Remove.sql
