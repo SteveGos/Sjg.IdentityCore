@@ -108,6 +108,8 @@ namespace SampleWebApp_1_x_x
             ////   https://books.google.com/books?id=_95YDwAAQBAJ&pg=PA192&lpg=PA192&dq=NWebsec+ScriptSources+CustomSources&source=bl&ots=Mb0rxfllE4&sig=HV3d7UHLvBhQMFGW3CsCapNeNAQ&hl=en&sa=X&ved=2ahUKEwiGuYCsrrTeAhWpHTQIHRqBDlEQ6AEwBXoECAcQAQ#v=onepage&q=NWebsec%20ScriptSources%20CustomSources&f=false
 
             ////   https://development.robinwinslow.uk/2013/06/20/loading-fonts-as-data-urls/
+            ////   https://neelbhatt.com/2018/02/16/secure-net-core-applications-from-click-jacking-net-core-security-part-iii/
+
 
             app.UseHsts(hsts => hsts.MaxAge(365).IncludeSubdomains());
             app.UseXContentTypeOptions();
