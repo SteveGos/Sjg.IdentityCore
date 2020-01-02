@@ -5,25 +5,26 @@ VisualStudioVersion = 16.0.29025.244
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Distribution", "Distribution", "{01AEA365-779E-4A06-AD0E-050C2A6423E5}"
 	ProjectSection(SolutionItems) = preProject
-		Distribution\NOTES.md = Distribution\NOTES.md
 		Distribution\Advisories.md = Distribution\Advisories.md
+		Distribution\LICENSE = Distribution\LICENSE
+		Distribution\NOTES.md = Distribution\NOTES.md
 		Distribution\README.md = Distribution\README.md
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Versions", "Versions", "{1305BEA0-4931-4EE6-814D-606C99E3EF7A}"
 	ProjectSection(SolutionItems) = preProject
 		Distribution\Versions\README.md = Distribution\Versions\README.md
-		Distribution\Versions\Sjg.IdentityCore.1.0.0.nupkg = Distribution\Versions\Sjg.IdentityCore.1.0.0.nupkg
 		Distribution\Versions\Sjg.IdentityCore.1.0.0.1.nupkg = Distribution\Versions\Sjg.IdentityCore.1.0.0.1.nupkg
+		Distribution\Versions\Sjg.IdentityCore.1.0.0.nupkg = Distribution\Versions\Sjg.IdentityCore.1.0.0.nupkg
 		Distribution\Versions\Sjg.IdentityCore.1.0.0.Remove.sql = Distribution\Versions\Sjg.IdentityCore.1.0.0.Remove.sql
 		Distribution\Versions\Sjg.IdentityCore.1.0.0.sql = Distribution\Versions\Sjg.IdentityCore.1.0.0.sql
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleWebApp_1_x_x", "SampleWebApp_1_x_x\SampleWebApp_1_x_x.csproj", "{A3FE38D4-E852-4E08-B017-C2353194C540}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SampleWebApp_1_x_x", "SampleWebApp_1_x_x\SampleWebApp_1_x_x.csproj", "{A3FE38D4-E852-4E08-B017-C2353194C540}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LdapActiveDirectoryHelper", "LdapActiveDirectoryHelper\LdapActiveDirectoryHelper.csproj", "{2FAB7750-5A8A-4A1F-949D-67FF753727B8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LdapActiveDirectoryHelper", "LdapActiveDirectoryHelper\LdapActiveDirectoryHelper.csproj", "{2FAB7750-5A8A-4A1F-949D-67FF753727B8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestApi", "TestApi\TestApi.csproj", "{C240C1FD-0BFE-4B22-A52A-E1095856C6D7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestApi", "TestApi\TestApi.csproj", "{C240C1FD-0BFE-4B22-A52A-E1095856C6D7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
