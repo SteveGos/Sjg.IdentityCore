@@ -23,6 +23,13 @@ ApiBasicAuthorizeAttribute
 
 - Allow Internal Service Accounts when utilizing Custom User Authentication.  Internal Service Accounts not tied to Custom User Authentication
 
+# Version 1.0.0.2
+
+**Nuget Package**
+
+- Cosmetic Grammer/Spelling... 
+- Fix Link
+
 
 **SQL Files:**
 
