@@ -55,3 +55,18 @@ No changes Use:
 
 - Sjg.IdentityCore.1.0.0.sql
 - Sjg.IdentityCore.1.0.0.Remove.sql
+
+
+# Version 1.0.0.4
+
+**Nuget Package**
+
+- Put Site Title in QR code for 2FA
+- Clean up verbiage
+
+**SQL Files:**
+
+No changes Use:
+
+- Sjg.IdentityCore.1.0.0.sql
+- Sjg.IdentityCore.1.0.0.Remove.sql
