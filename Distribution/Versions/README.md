@@ -56,7 +56,6 @@ No changes Use:
 - Sjg.IdentityCore.1.0.0.sql
 - Sjg.IdentityCore.1.0.0.Remove.sql
 
-
 # Version 1.0.0.4
 
 **Nuget Package**
@@ -70,3 +69,18 @@ No changes Use:
 
 - Sjg.IdentityCore.1.0.0.sql
 - Sjg.IdentityCore.1.0.0.Remove.sql
+
+
+# Version 1.0.0.5
+
+**Nuget Package**
+
+- removed inline style / javascript
+
+**SQL Files:**
+
+No changes Use:
+
+- Sjg.IdentityCore.1.0.0.sql
+- Sjg.IdentityCore.1.0.0.Remove.sql
+
