@@ -84,3 +84,16 @@ No changes Use:
 - Sjg.IdentityCore.1.0.0.sql
 - Sjg.IdentityCore.1.0.0.Remove.sql
 
+# Version 1.0.0.6
+
+**Nuget Package**
+
+- miscellaneous cleanup
+
+**SQL Files:**
+
+No changes Use:
+
+- Sjg.IdentityCore.1.0.0.sql
+- Sjg.IdentityCore.1.0.0.Remove.sql
+
