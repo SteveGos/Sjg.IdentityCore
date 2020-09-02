@@ -97,3 +97,17 @@ No changes Use:
 - Sjg.IdentityCore.1.0.0.sql
 - Sjg.IdentityCore.1.0.0.Remove.sql
 
+# Version 1.0.0.7
+
+**Nuget Package**
+
+- Made Sjg.IdentityCore.IdentityCoreConfigureOptions Public
+- Allows Setup within application - for .Net Core 3.1+
+
+**SQL Files:**
+
+No changes Use:
+
+- Sjg.IdentityCore.1.0.0.sql
+- Sjg.IdentityCore.1.0.0.Remove.sql
+
